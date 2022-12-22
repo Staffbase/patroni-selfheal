@@ -19,7 +19,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VALIDATE_ALL_CODEBASE: false
           VALIDATE_JSCPD: false
-          VALIDATE_GO: false
 
   docker-build:
     runs-on: ubuntu-22.04
@@ -35,7 +34,7 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images:
-            patroni-selfheal--local
+            patroni-selfheal-local
           tags: |
             type=raw,latest
 
@@ -43,10 +42,8 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v3
         with:
-          context: .
-          file: ./Dockerfile
           labels: ${{ steps.meta.outputs.labels }}
-          outputs: type=docker,dest=/tmp/mongodb-exporter-local.tar
+          outputs: type=docker,dest=/tmp/patroni-selfheal-local.tar
           platforms: linux/amd64
           push: false
           tags: ${{ steps.meta.outputs.tags }}
