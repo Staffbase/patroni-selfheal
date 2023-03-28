@@ -3,7 +3,7 @@
 # patroni self heal
 #
 
-trap exit TERM INT
+trap exit TERM INT SIGTERM
 
 while true; do
     echo "$(date +'%d.%m.%Y %H:%M:%S') - Checking Patroni health..."
