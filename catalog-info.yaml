@@ -1,0 +1,18 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: patroni-selfheal
+  description: patroni-selfheal kills patroni containers if they fail to start
+  annotations:
+    github.com/project-slug: Staffbase/patroni-selfheal
+    github.com/team-slug: Staffbase/diablo
+    backstage.io/techdocs-ref: url:https://github.com/Staffbase/patroni-selfheal/tree/main
+    jfrog-artifactory/image-name: apperator
+  tags:
+    - kubernetes
+    - operator
+    - go
+spec:
+  type: service
+  owner: diablo
+  lifecycle: production

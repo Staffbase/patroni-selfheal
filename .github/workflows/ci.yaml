@@ -7,7 +7,7 @@ on:
 
 jobs:
   super-linter:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -23,7 +23,7 @@ jobs:
           VALIDATE_JSCPD: false
 
   docker-build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -49,3 +49,15 @@ jobs:
           platforms: linux/amd64
           push: false
           tags: ${{ steps.meta.outputs.tags }}
+
+  dependabot-automerge:
+    name: Auto Merge (Dependabot)
+    needs:
+      - docker-build
+      - super-linter
+    uses: Staffbase/gha-workflows/.github/workflows/template_automerge_dependabot.yml@v5.6.0
+    with:
+      force: true
+    secrets:
+      app_id: ${{ vars.STAFFBASE_ACTIONS_APP_ID }}
+      private_key: ${{ secrets.STAFFBASE_ACTIONS_PRIVATE_KEY }}
