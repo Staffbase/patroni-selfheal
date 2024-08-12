@@ -55,7 +55,7 @@ jobs:
     needs:
       - docker-build
       - super-linter
-    uses: Staffbase/gha-workflows/.github/workflows/template_automerge_dependabot.yml@v5.6.0
+    uses: Staffbase/gha-workflows/.github/workflows/template_automerge_dependabot.yml@v6.0.0
     with:
       force: true
     secrets:
