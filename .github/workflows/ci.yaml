@@ -15,7 +15,7 @@ jobs:
           fetch-depth: 0
 
       - name: Lint Code Base
-        uses: github/super-linter/slim@v6
+        uses: github/super-linter/slim@v7
         env:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -55,7 +55,7 @@ jobs:
     needs:
       - docker-build
       - super-linter
-    uses: Staffbase/gha-workflows/.github/workflows/template_automerge_dependabot.yml@v7.1.0
+    uses: Staffbase/gha-workflows/.github/workflows/template_automerge_dependabot.yml@v7.2.0
     with:
       force: true
     secrets:
