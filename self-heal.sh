@@ -3,6 +3,8 @@
 # patroni self heal
 #
 
+set -e
+
 SLEEP_TIME="60"
 
 trap exit TERM INT
