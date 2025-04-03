@@ -35,8 +35,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images:
-            patroni-selfheal-local
+          images: patroni-selfheal-local
           tags: |
             type=raw,latest
 
@@ -55,7 +54,7 @@ jobs:
     needs:
       - docker-build
       - super-linter
-    uses: Staffbase/gha-workflows/.github/workflows/template_automerge_dependabot.yml@v7.2.0
+    uses: Staffbase/gha-workflows/.github/workflows/template_automerge_dependabot.yml@v7.3.1
     with:
       force: true
     secrets:
