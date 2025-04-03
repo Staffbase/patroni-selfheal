@@ -35,8 +35,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images:
-            patroni-selfheal-local
+          images: patroni-selfheal-local
           tags: |
             type=raw,latest
 
