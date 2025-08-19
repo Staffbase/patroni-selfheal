@@ -22,6 +22,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VALIDATE_ALL_CODEBASE: false
           VALIDATE_JSCPD: false
+          VALIDATE_KUBERNETES_KUBECONFORM: false
 
   docker-build:
     runs-on: ubuntu-24.04
@@ -55,7 +56,8 @@ jobs:
     needs:
       - docker-build
       - super-linter
-    uses: Staffbase/gha-workflows/.github/workflows/template_automerge_dependabot.yml@v7.9.0
+    uses: >-
+      Staffbase/gha-workflows/.github/workflows/template_automerge_dependabot.yml@v7.9.0
     with:
       force: true
     secrets:
