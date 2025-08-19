@@ -1,3 +1,4 @@
+---
 name: Release
 
 permissions: read-all
@@ -5,9 +6,9 @@ permissions: read-all
 on:
   push:
     branches:
-      - 'main'
+      - "main"
     tags:
-      - '*'
+      - "*"
 
 jobs:
   docker-build-push:
@@ -18,7 +19,7 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
@@ -44,7 +45,7 @@ jobs:
             type=semver,pattern=v{{major}}.{{minor}}
             type=semver,pattern=v{{major}}
             type=sha
- 
+
       - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v6
