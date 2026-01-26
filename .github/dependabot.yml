@@ -14,3 +14,5 @@ updates:
       interval: "weekly"
       time: "09:00"
       timezone: "Europe/Berlin"
+    cooldown:
+      default-days: 7
